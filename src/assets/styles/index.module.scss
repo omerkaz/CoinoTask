@@ -1,0 +1,16 @@
+body {
+  margin: 0px;
+  font-family: "Avenir LT Pro 55 Roman";
+}
+@font-face {
+  font-family: "Avenir LT Pro 55 Roman";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Avenir LT Pro 55 Roman"),
+    url("../fonts/avenir_ff/AvenirLTProRoman.woff") format("woff");
+}
+
+* {
+  font-family: "Avenir LT Pro 55 Roman";
+  font-weight: 500;
+}

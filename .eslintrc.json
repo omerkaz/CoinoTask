@@ -27,6 +27,7 @@
   "plugins": [
       "react",
       "@typescript-eslint",
+      "unicorn",
       "jest-dom",
       "prettier"
   ],
@@ -56,6 +57,7 @@
     "unicorn/consistent-destructuring": "off",
     "unicorn/consistent-function-scoping": "off",
     "unicorn/prefer-code-point": "off",
+    "unicorn/prefer-query-selector": "off",
     "unicorn/filename-case": [
       "error",
       {
