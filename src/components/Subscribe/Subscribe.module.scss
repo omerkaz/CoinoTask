@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  align-items: center;
+  .subscribe {
+    .form {
+      display: flex;
+      min-width: 40rem;
+      .input {
+        background-color: #fff;
+        border: none;
+        flex: 2.5;
+        outline: 0;
+        color: #000;
+        min-height: 42.4px;
+        padding: 0px 15px;
+      }
+      .button {
+        flex: 1;
+        display: inline-block;
+        background-color: #f89e12;
+        border: 1px solid #f89e12;
+        color: #fff;
+        padding: 8px 30px;
+        font-size: 15px;
+      }
+    }
+  }
+  .icons {
+    margin-left: 1rem;
+  }
+}
