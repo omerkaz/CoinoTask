@@ -2,13 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
+import DropdownMenu, { Option } from "../DropdownMenu/DropdownMenu";
 function Navbar() {
   const { i18n } = useTranslation();
-  const handleLanguageButton = () => {
-    i18n.language === "tr"
-      ? i18n.changeLanguage("en")
-      : i18n.changeLanguage("tr");
+  const languageOptions = [];
+
+  // we check i18n for language options
+  for (const language in i18n.store.data) {
+    languageOptions.push({ value: language, label: language.toUpperCase() });
+  }
+  const handleLanguageDropdownMenu = (language: Option) => {
+    language.value === "tr"
+      ? i18n.changeLanguage("tr")
+      : i18n.changeLanguage("en");
   };
+
   return (
     <section className={styles.navbarSection}>
       <div className={styles.container}>
@@ -38,7 +46,10 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <button onClick={handleLanguageButton}>{i18n.language}</button>
+          <DropdownMenu
+            options={languageOptions}
+            onSelect={(language) => handleLanguageDropdownMenu(language)}
+          />
           <Link className={styles.navbarCart} to={"/cart"}>
             Cart
           </Link>
