@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
+import { useTranslation } from "react-i18next";
 function Navbar() {
+  const { i18n } = useTranslation();
+  const handleLanguageButton = () => {
+    i18n.language === "tr"
+      ? i18n.changeLanguage("en")
+      : i18n.changeLanguage("tr");
+  };
   return (
     <section className={styles.navbarSection}>
       <div className={styles.container}>
@@ -31,6 +38,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
+          <button onClick={handleLanguageButton}>{i18n.language}</button>
           <Link className={styles.navbarCart} to={"/cart"}>
             Cart
           </Link>
