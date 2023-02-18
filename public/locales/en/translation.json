@@ -1,3 +1,8 @@
 {
-    "home": "Home"
+ "navbar": { 
+    "home": "Home",
+    "products": "Products",
+    "contact": "Contact",
+    "favorites": "Favorites"
+  }
 }

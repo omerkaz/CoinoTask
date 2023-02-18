@@ -4,11 +4,11 @@ import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
 import DropdownMenu, { Option } from "../DropdownMenu/DropdownMenu";
 function Navbar() {
-  const { i18n } = useTranslation();
-  const languageOptions = [];
+  const { t, i18n } = useTranslation();
+  const languageOptions: Option[] = [];
 
-  // we check i18n for language options
-  for (const language in i18n.store.data) {
+  // we check i18n for language options and send DropdownMenu
+  for (const language of i18n.languages) {
     languageOptions.push({ value: language, label: language.toUpperCase() });
   }
   const handleLanguageDropdownMenu = (language: Option) => {
@@ -27,22 +27,22 @@ function Navbar() {
           <ul className={styles.navbarList}>
             <li className={styles.navbarListItem}>
               <Link className={styles.navbarLink} to={"/"}>
-                Home
+                {t("navbar.home")}
               </Link>
             </li>
             <li className={styles.navbarListItem}>
               <Link className={styles.navbarLink} to={"/products"}>
-                Products
+                {t("navbar.products")}
               </Link>
             </li>
             <li className={styles.navbarListItem}>
               <Link className={styles.navbarLink} to={"/favorites"}>
-                Favorites
+                {t("navbar.favorites")}
               </Link>
             </li>
             <li className={styles.navbarListItem}>
               <Link className={styles.navbarLink} to={"/contact"}>
-                Contact
+                {t("navbar.contact")}
               </Link>
             </li>
           </ul>

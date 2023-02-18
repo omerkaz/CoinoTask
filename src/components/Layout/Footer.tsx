@@ -10,8 +10,8 @@ function Footer() {
           <div>Information</div>
           {<Subscribe />}
         </div>
+        <div className={styles.copyright}>© 2023 All Rights Reserved.</div>
       </footer>
-      <div className={styles.copyright}>© 2023 All Rights Reserved.</div>
     </>
   );
 }
