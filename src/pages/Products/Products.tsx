@@ -52,8 +52,8 @@ function Products() {
     const filtered = products.filter(
       (product) =>
         product.brand.includes(searchTerm) ||
-        product.title.includes(searchTerm) ||
-        product.category.includes(searchTerm)
+        product.category.includes(searchTerm) ||
+        product.title.includes(searchTerm)
     );
     setFilteredProducts(filtered);
   };
