@@ -1,34 +1,88 @@
 import React, { useState, useEffect } from "react";
 import { addNotification } from "@src/utils/notifications";
 import { api } from "@src/api";
-import ProductCard, { Product } from "@src/components/ProductCard/ProductCard";
+import ProductCard from "@src/components/ProductCard/ProductCard";
+import DropdownMenu from "@src/components/DropdownMenu/DropdownMenu";
+import { Product, Option } from "@src/types";
+import styles from "./Products.module.scss";
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
-
-  const fetchProducts = async () => {
-    try {
-      const { data } = await api.products.axios_get("/products", { limit: 10 });
-      setProducts(data.products);
-    } catch {
-      addNotification({
-        title: "Bağlantı Hatası",
-        message: "İnternet bağlantınızı kontrol ediniz.",
-        type: "danger",
-      });
-    }
-  };
+  const dropDownMenuOptions: Option[] = [
+    {
+      value: "",
+      label: "Sıralama",
+    },
+    {
+      value: "sortRating",
+      label: "Puana göre sırala",
+    },
+    {
+      value: "sortAscendingPrice",
+      label: "Artan fiyat",
+    },
+    {
+      value: "sortDescendingPrice",
+      label: "Azalan fiyat",
+    },
+  ];
 
   useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const { data } = await api.products.axios_get("/products", {
+          limit: 10,
+        });
+        setProducts(data.products);
+      } catch {
+        addNotification({
+          title: "Bağlantı Hatası",
+          message: "İnternet bağlantınızı kontrol ediniz.",
+          type: "danger",
+        });
+      }
+    }
+
     fetchProducts();
   }, []);
 
+  const handleProductSort = (option: Option) => {
+    switch (option.value) {
+      case "sortRating": {
+        const sortedProducts = [...products].sort(
+          (a, b) => b.rating - a.rating
+        );
+        setProducts(sortedProducts);
+        break;
+      }
+      case "sortAscendingPrice": {
+        const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+        setProducts(sortedProducts);
+        break;
+      }
+      case "sortDescendingPrice": {
+        const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+        setProducts(sortedProducts);
+        break;
+      }
+    }
+  };
+
   return (
-    <div>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      <div className={styles.row}>
+        {/* Search */}
+        <DropdownMenu
+          options={dropDownMenuOptions}
+          onSelect={(option) => handleProductSort(option)}
+        />
+      </div>
+      <div className={styles.row} style={{ flexWrap: "wrap" }}>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    </>
   );
 }
 

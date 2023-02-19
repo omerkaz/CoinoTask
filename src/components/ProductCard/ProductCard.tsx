@@ -1,29 +1,12 @@
 import React from "react";
 import styles from "./ProductCard.module.scss";
-import { images } from "@assets/images/index";
-export type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
-};
-
-type ProductCardProps = {
-  product: Product;
-};
+import { ProductCardProps } from "@src/types";
 
 function ProductCard({ product }: ProductCardProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.productImg}>
-        <img src={images.home[0].src} height="420" width="327" />
+        <img src={product.images[2]} height="420" width="327" />
       </div>
       <div className={styles.productInfo}>
         <div className={styles.productText}>

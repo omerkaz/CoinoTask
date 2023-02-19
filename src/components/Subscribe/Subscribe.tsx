@@ -1,7 +1,8 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
-import styles from "./Subscribe.module.scss";
 import { addNotification } from "@src/utils/notifications";
+import styles from "./Subscribe.module.scss";
+
 type Values = {
   email: string;
 };

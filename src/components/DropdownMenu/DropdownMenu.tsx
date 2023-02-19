@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-export type Option = {
-  value: string | number;
-  label: string;
-};
-
-type DropdownProps = {
-  options: Option[];
-  onSelect?: (option: Option) => void;
-};
-
+import { DropdownProps, Option } from "@src/types/index";
 function DropdownMenu({ options, onSelect }: DropdownProps) {
   const [selectedOption, setSelectedOption] = useState<Option>(options[0]);
 
