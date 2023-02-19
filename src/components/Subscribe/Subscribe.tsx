@@ -7,7 +7,7 @@ type Values = {
 };
 
 function Subscribe() {
-  const onSubmit = (values: Values) => {
+  const onSubmit = async (values: Values) => {
     try {
       console.log(values);
       addNotification({

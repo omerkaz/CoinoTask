@@ -5,11 +5,7 @@ function Footer() {
   return (
     <>
       <footer className={styles.footer}>
-        <div className={styles.container}>
-          <div>Like Woman</div>
-          <div>Information</div>
-          {<Subscribe />}
-        </div>
+        <div className={styles.container}>{<Subscribe />}</div>
         <div className={styles.copyright}>© 2023 All Rights Reserved.</div>
       </footer>
     </>
