@@ -1,13 +1,13 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import { addNotification } from "@src/utils/notifications";
-import styles from "./Subscribe.module.scss";
+import styles from "./SubscribeForm.module.scss";
 
 type Values = {
   email: string;
 };
 
-function Subscribe() {
+function SubscribeForm() {
   const onSubmit = async (values: Values) => {
     try {
       console.log(values);
@@ -50,4 +50,4 @@ function Subscribe() {
   );
 }
 
-export default Subscribe;
+export default SubscribeForm;

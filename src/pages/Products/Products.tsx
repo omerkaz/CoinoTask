@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { addNotification } from "@src/utils/notifications";
 import { api } from "@src/api";
 import ProductCard from "@src/components/ProductCard/ProductCard";
@@ -8,6 +8,7 @@ import styles from "./Products.module.scss";
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const dropDownMenuOptions: Option[] = [
     {
       value: "",
@@ -46,6 +47,17 @@ function Products() {
     fetchProducts();
   }, []);
 
+  const handleProductFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = event.currentTarget.value;
+    const filtered = products.filter(
+      (product) =>
+        product.brand.includes(searchTerm) ||
+        product.title.includes(searchTerm) ||
+        product.category.includes(searchTerm)
+    );
+    setFilteredProducts(filtered);
+  };
+
   const handleProductSort = (option: Option) => {
     switch (option.value) {
       case "sortRating": {
@@ -71,16 +83,22 @@ function Products() {
   return (
     <>
       <div className={styles.row}>
-        {/* Search */}
+        <input
+          type="text"
+          placeholder={'example"apple"'}
+          onChange={handleProductFilter}
+        />
         <DropdownMenu
           options={dropDownMenuOptions}
           onSelect={(option) => handleProductSort(option)}
         />
       </div>
       <div className={styles.row} style={{ flexWrap: "wrap" }}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {(filteredProducts.length === 0 ? products : filteredProducts).map(
+          (product) => (
+            <ProductCard key={product.id} product={product} />
+          )
+        )}
       </div>
     </>
   );
