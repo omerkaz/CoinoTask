@@ -17,20 +17,20 @@ function Carousel({ images, text }: CaurouselProps) {
     setCurrentImage(currentImage === images.length - 1 ? 0 : currentImage + 1);
   };
   return (
-    <section className={styles.carousel}>
+    <div className={styles.carousel}>
       <div className={styles.image}>
         <img src={images[currentImage].src} />
         {text ? <div>Text</div> : undefined}
       </div>
       <div className={styles.navigation}>
         <button className={styles.button} onClick={handleNextClick}>
-          <FaArrowCircleLeft size={"20"} />
+          <FaArrowCircleLeft size={"30"} />
         </button>
         <button className={styles.button} onClick={handlePrevClick}>
-          <FaArrowCircleRight size={"20"} />
+          <FaArrowCircleRight size={"30"} />
         </button>
       </div>
-    </section>
+    </div>
   );
 }
 
