@@ -5,9 +5,10 @@ import store from "./store";
 import { ReactNotifications } from "react-notifications-component";
 import Layout from "@src/layout/Layout";
 import Home from "@pages/Home/Home";
-import Products from "./pages/Products/Products";
-import Cart from "./pages/Cart/Cart";
-import Favorites from "./pages/Favorites/Favorites";
+import Products from "@pages/Products/Products";
+import Cart from "@pages/Cart/Cart";
+import Favorites from "@pages/Favorites/Favorites";
+import Checkout from "@pages/Checkout/Checkout";
 import "@assets/styles/index.module.scss";
 import "react-notifications-component/dist/theme.css";
 
@@ -27,6 +28,10 @@ function App() {
             <Route
               path="/favorites"
               element={<Layout Component={<Favorites />} />}
+            />
+            <Route
+              path="/checkout"
+              element={<Layout Component={<Checkout />} />}
             />
           </Routes>
         </BrowserRouter>
