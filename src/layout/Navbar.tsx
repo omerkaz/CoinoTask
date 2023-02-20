@@ -52,8 +52,8 @@ function Navbar() {
           />
           <Link className={styles.navbarCart} to={"/cart"}>
             <BsFillCartFill size={22} />
+            <span>(1)</span>
           </Link>
-          <span>(1)</span>
         </div>
       </nav>
     </section>

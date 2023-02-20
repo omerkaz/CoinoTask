@@ -7,6 +7,7 @@ import {
   FaFacebookSquare,
   FaInstagramSquare,
 } from "react-icons/fa";
+
 type Values = {
   email: string;
 };

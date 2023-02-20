@@ -41,5 +41,8 @@
   .navbarCart {
     color: $primary-text-color;
     margin-left: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 }
