@@ -28,5 +28,10 @@ export type Product = {
 
 export type ProductCardProps = {
   product: Product;
+  onAddToCart?: (product: Product) => void;
+  onRemoveFromCart?: (product: Product) => void;
+  onAddToFavorites?: (product: Product) => void;
+  onRemoveFromFavorites?: (product: Product) => void;
+  onQuantityChange?: (newQuantity: number, product: Product) => void;
 };
 // ------------------

@@ -28,6 +28,7 @@ function Products() {
     },
   ];
 
+  // fetch products logic
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -47,6 +48,7 @@ function Products() {
     fetchProducts();
   }, []);
 
+  // Search and Sort Logic
   // for search bar
   const handleProductFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.currentTarget.value;
@@ -81,6 +83,14 @@ function Products() {
       }
     }
   };
+  // Global state logic
+  const handleAddToCart = (product: Product) => {
+    
+  };
+
+  const handleAddToFavorites = (product: Product) => {
+
+  };
 
   return (
     <>
@@ -102,7 +112,16 @@ function Products() {
       <div className={styles.row} style={{ flexWrap: "wrap" }}>
         {(filteredProducts.length === 0 ? products : filteredProducts).map(
           (product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              onAddToCart={(product) => {
+                handleAddToCart(product);
+              }}
+              onAddToFavorites={(product) => {
+                handleAddToFavorites(product);
+              }}
+            />
           )
         )}
       </div>
