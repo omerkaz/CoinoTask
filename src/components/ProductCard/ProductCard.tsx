@@ -1,32 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./ProductCard.module.scss";
 import { ProductCardProps } from "@src/types";
 
 function ProductCard({
   product,
+  quantity,
   onAddToCart,
   onRemoveFromCart,
   onAddToFavorites,
   onRemoveFromFavorites,
   onQuantityChange,
 }: ProductCardProps) {
+  const quantityInput = useRef<HTMLInputElement>(null);
+
   const handleAddToCart = () => {
-    onAddToCart && onAddToCart(product);
+    onAddToCart && onAddToCart();
   };
 
   const handleRemoveFromCart = () => {
-    onRemoveFromCart && onRemoveFromCart(product);
+    onRemoveFromCart && onRemoveFromCart();
   };
 
   const handleAddToFavorites = () => {
-    onAddToFavorites && onAddToFavorites(product);
+    onAddToFavorites && onAddToFavorites();
   };
 
   const handleRemoveFromFavorites = () => {
-    onRemoveFromFavorites && onRemoveFromFavorites(product);
+    onRemoveFromFavorites && onRemoveFromFavorites();
   };
   const handleQuantityChange = (value: number) => {
-    onQuantityChange && onQuantityChange(value, product);
+    onQuantityChange && onQuantityChange(value);
   };
 
   return (
@@ -40,43 +43,45 @@ function ProductCard({
           <h2>by {product.brand}</h2>
           <p>{product.description}</p>
         </div>
-        <div>
-          <span className={styles.productPriceWrap}>
+        <div className={styles.productPriceWrap}>
+          <span>
             {product.price - (product.price * product.discountPercentage) / 100}
           </span>
           $
         </div>
-        <div className={styles.productPriceBtn}>
+        <div className={styles.productButtons}>
           {onAddToCart ? (
-            <button type="button" onClick={handleAddToCart}>
-              buy now
+            <button type="button" onClick={() => handleAddToCart()}>
+              Add Cart
             </button>
           ) : (
             <button type="button" onClick={handleRemoveFromCart}>
-              buy now
+              Remove Cart
             </button>
           )}
           {onAddToFavorites ? (
             <button type="button" onClick={handleAddToFavorites}>
-              buy now
+              Add Favorites
             </button>
           ) : (
             <button type="button" onClick={handleRemoveFromFavorites}>
-              buy now
+              Remove Favorites
             </button>
           )}
-          {onQuantityChange ? (
+        </div>
+        {onQuantityChange ? (
+          <div className={styles.productQuantity}>
             <input
+              ref={quantityInput}
+              value={quantity}
               type="number"
               id="quantity"
               name="quantity"
               min="1"
-              max="100"
-              defaultValue={1}
               onChange={(e) => handleQuantityChange(Number(e.target.value))}
             />
-          ) : undefined}
-        </div>
+          </div>
+        ) : undefined}
       </div>
     </div>
   );

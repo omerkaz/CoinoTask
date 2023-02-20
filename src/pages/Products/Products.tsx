@@ -5,6 +5,9 @@ import ProductCard from "@src/components/ProductCard/ProductCard";
 import DropdownMenu from "@src/components/DropdownMenu/DropdownMenu";
 import { Product, Option } from "@src/types";
 import styles from "./Products.module.scss";
+import { addProductToCart } from "@src/store/cart/slice";
+import { addProductToFavorites } from "@src/store/favorites/slice";
+import { useAppDispatch } from "@src/store/hooks";
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -49,8 +52,7 @@ function Products() {
   }, []);
 
   // Search and Sort Logic
-  // for search bar
-  const handleProductFilter = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleProductSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.currentTarget.value;
     const filtered = products.filter(
       (product) =>
@@ -60,8 +62,6 @@ function Products() {
     );
     setFilteredProducts(filtered);
   };
-
-  // for dropdown menu
   const handleProductSort = (option: Option) => {
     switch (option.value) {
       case "sortRating": {
@@ -83,13 +83,16 @@ function Products() {
       }
     }
   };
+
   // Global state logic
+  const dispatch = useAppDispatch();
+
   const handleAddToCart = (product: Product) => {
-    
+    dispatch(addProductToCart(product));
   };
 
   const handleAddToFavorites = (product: Product) => {
-
+    dispatch(addProductToFavorites(product));
   };
 
   return (
@@ -100,7 +103,7 @@ function Products() {
             className={styles.searchInput}
             type="text"
             placeholder={'example"apple"'}
-            onChange={handleProductFilter}
+            onChange={handleProductSearch}
           />
           <DropdownMenu
             options={dropDownMenuOptions}
@@ -115,10 +118,8 @@ function Products() {
             <ProductCard
               key={product.id}
               product={product}
-              onAddToCart={(product) => {
-                handleAddToCart(product);
-              }}
-              onAddToFavorites={(product) => {
+              onAddToCart={() => handleAddToCart(product)}
+              onAddToFavorites={() => {
                 handleAddToFavorites(product);
               }}
             />

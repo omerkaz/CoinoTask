@@ -2,19 +2,18 @@
 .cartRow {
   display: flex;
   justify-content: space-evenly;
-  color: $primary-text-color;
 }
 .productsCol {
   flex: 2;
   background: $primary-color;
-  max-width: 55%;
-  height: 300px;
+  max-width: 60%;
   border-radius: 0.5rem;
 }
 .summaryCol {
   flex: 1;
   display: flex;
   flex-direction: column;
+  color: $primary-text-color;
   background: $primary-color;
   max-width: 25%;
   height: 200px;
