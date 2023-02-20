@@ -1,5 +1,5 @@
 import React from "react";
-import SubscribeForm from "../SubscribeForm/SubscribeForm";
+import SubscribeForm from "@Components/SubscribeForm/SubscribeForm";
 import styles from "./Footer.module.scss";
 function Footer() {
   return (

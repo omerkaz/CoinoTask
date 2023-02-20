@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./Navbar.module.scss";
 import { useTranslation } from "react-i18next";
-import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import { Option } from "@src/types";
+import { Link } from "react-router-dom";
+import DropdownMenu from "@Components/DropdownMenu/DropdownMenu";
+import styles from "./Navbar.module.scss";
+
 function Navbar() {
   const { t, i18n } = useTranslation();
   const languageOptions: Option[] = [];

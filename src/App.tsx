@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ReactNotifications } from "react-notifications-component";
-import Layout from "@src/components/Layout/Layout";
+import Layout from "@src/layout/Layout";
 import Home from "@pages/Home/Home";
 import Products from "./pages/Products/Products";
 import Cart from "./pages/Cart/Cart";
