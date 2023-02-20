@@ -1,7 +1,7 @@
 @import "../../assets/styles/_variables.scss";
 
 .wrapper {
-  height: 28rem;
+  height: 24rem;
   width: 654px;
   background-color: #ffffff;
   margin: 4rem auto;
@@ -19,6 +19,8 @@
 }
 
 .productImg img {
+  height: 16rem;
+  width: 16rem;
   object-fit: scale-down;
   margin-top: auto;
   margin-bottom: auto;
@@ -38,7 +40,7 @@
 
 .productText h1 {
   margin: 0 0 0 1rem;
-  padding-top: 4rem;
+  padding-top: 1rem;
   font-size: 34px;
   color: #5b8a72;
 }
@@ -78,7 +80,7 @@
 .productButtons {
   display: flex;
   flex-direction: column;
-  margin-top: 17px;
+  margin-top: 0.8rem;
 }
 
 .productButtons button {

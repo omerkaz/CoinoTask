@@ -6,9 +6,11 @@ import Layout from "@src/components/Layout/Layout";
 import Home from "@pages/Home/Home";
 import Products from "./pages/Products/Products";
 import Cart from "./pages/Cart/Cart";
+import Favorites from "./pages/Favorites/Favorites";
 import "@assets/styles/index.module.scss";
 import "react-notifications-component/dist/theme.css";
 import store from "./store";
+
 function App() {
   return (
     <>
@@ -22,6 +24,10 @@ function App() {
               element={<Layout Component={<Products />} />}
             />
             <Route path="/cart" element={<Layout Component={<Cart />} />} />
+            <Route
+              path="/favorites"
+              element={<Layout Component={<Favorites />} />}
+            />
           </Routes>
         </BrowserRouter>
       </Provider>

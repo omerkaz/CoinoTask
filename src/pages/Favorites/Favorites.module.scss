@@ -1,0 +1,7 @@
+@import "../../assets/styles/_variables.scss";
+
+.favoritesRow {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

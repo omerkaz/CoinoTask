@@ -1,11 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "@src/types";
-interface FavoritesPageState {
-  products: Product[];
-}
+import { Product, FavoritesPageState } from "@src/types";
+
 const initialState: FavoritesPageState = {
   products: [],
 };
+
 const slice = createSlice({
   name: "favorites",
   initialState,

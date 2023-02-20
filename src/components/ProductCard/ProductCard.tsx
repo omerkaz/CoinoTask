@@ -35,7 +35,7 @@ function ProductCard({
   return (
     <div className={styles.wrapper}>
       <div className={styles.productImg}>
-        <img src={product.images[2]} height="420" width="327" />
+        <img src={product.images[2]} />
       </div>
       <div className={styles.productInfo}>
         <div className={styles.productText}>
