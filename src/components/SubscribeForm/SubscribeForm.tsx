@@ -2,7 +2,11 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import { addNotification } from "@src/utils/notifications";
 import styles from "./SubscribeForm.module.scss";
-
+import {
+  FaTwitterSquare,
+  FaFacebookSquare,
+  FaInstagramSquare,
+} from "react-icons/fa";
 type Values = {
   email: string;
 };
@@ -45,7 +49,10 @@ function SubscribeForm() {
           </Form>
         </Formik>
       </div>
-      <div className={styles.icons}>icon icon icon icon</div>
+      <div className={styles.icons}>
+        <FaTwitterSquare size={30} /> <FaFacebookSquare size={30} />{" "}
+        <FaInstagramSquare size={30} />
+      </div>
     </div>
   );
 }
