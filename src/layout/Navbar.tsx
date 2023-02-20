@@ -4,6 +4,8 @@ import { Option } from "@src/types";
 import { Link } from "react-router-dom";
 import DropdownMenu from "@Components/DropdownMenu/DropdownMenu";
 import styles from "./Navbar.module.scss";
+import { FaShopify } from "react-icons/fa";
+import { BsFillCartFill } from "react-icons/bs";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -21,43 +23,39 @@ function Navbar() {
 
   return (
     <section className={styles.navbarSection}>
-      <div className={styles.container}>
-        <div className={styles.navbar}>
-          <Link className={styles.navbarBrand} to={"/"}>
-            Brand
-          </Link>
-          <ul className={styles.navbarList}>
-            <li className={styles.navbarListItem}>
-              <Link className={styles.navbarLink} to={"/"}>
-                {t("navbar.home")}
-              </Link>
-            </li>
-            <li className={styles.navbarListItem}>
-              <Link className={styles.navbarLink} to={"/products"}>
-                {t("navbar.products")}
-              </Link>
-            </li>
-            <li className={styles.navbarListItem}>
-              <Link className={styles.navbarLink} to={"/favorites"}>
-                {t("navbar.favorites")}
-              </Link>
-            </li>
-            <li className={styles.navbarListItem}>
-              <Link className={styles.navbarLink} to={"/contact"}>
-                {t("navbar.contact")}
-              </Link>
-            </li>
-          </ul>
+      <nav className={styles.navbar}>
+        <Link className={styles.navbarBrand} to={"/"}>
+          <FaShopify size={35} />
+        </Link>
+        <ul className={styles.navbarList}>
+          <li className={styles.navbarListItem}>
+            <Link className={styles.navbarLink} to={"/"}>
+              {t("navbar.home")}
+            </Link>
+          </li>
+          <li className={styles.navbarListItem}>
+            <Link className={styles.navbarLink} to={"/products"}>
+              {t("navbar.products")}
+            </Link>
+          </li>
+          <li className={styles.navbarListItem}>
+            <Link className={styles.navbarLink} to={"/favorites"}>
+              {t("navbar.favorites")}
+            </Link>
+          </li>
+        </ul>
+        <div className={styles.navbarList}>
           <DropdownMenu
             options={languageOptions}
             onSelect={(language) => handleLanguageDropdownMenu(language)}
-            width="70px"
+            width="50px"
           />
           <Link className={styles.navbarCart} to={"/cart"}>
-            Cart
+            <BsFillCartFill size={22} />
           </Link>
+          <span>(1)</span>
         </div>
-      </div>
+      </nav>
     </section>
   );
 }

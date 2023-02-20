@@ -2,8 +2,8 @@
 
 .wrapper {
   height: 24rem;
-  width: 654px;
-  background-color: #ffffff;
+  max-width: 32rem;
+  background-color: $white-color;
   margin: 4rem auto;
   padding: 0 2rem 0 2rem;
   border-radius: 7px 7px 7px 7px;
@@ -20,7 +20,7 @@
 
 .productImg img {
   height: 16rem;
-  width: 16rem;
+  width: 11rem;
   object-fit: scale-down;
   margin-top: auto;
   margin-bottom: auto;

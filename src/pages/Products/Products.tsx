@@ -102,7 +102,7 @@ function Products() {
           <input
             className={styles.searchInput}
             type="text"
-            placeholder={'example"apple"'}
+            placeholder={"Search"}
             onChange={handleProductSearch}
           />
           <DropdownMenu
