@@ -50,6 +50,7 @@ function Navbar() {
           <DropdownMenu
             options={languageOptions}
             onSelect={(language) => handleLanguageDropdownMenu(language)}
+            width="70px"
           />
           <Link className={styles.navbarCart} to={"/cart"}>
             Cart

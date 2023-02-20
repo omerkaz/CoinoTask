@@ -7,6 +7,7 @@ export type Option = {
 export type DropdownProps = {
   options: Option[];
   onSelect?: (option: Option) => void;
+  width?: string;
 };
 // ------------------
 

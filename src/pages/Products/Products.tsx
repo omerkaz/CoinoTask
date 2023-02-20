@@ -47,17 +47,19 @@ function Products() {
     fetchProducts();
   }, []);
 
+  // for search bar
   const handleProductFilter = (event: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.currentTarget.value;
     const filtered = products.filter(
       (product) =>
-        product.brand.includes(searchTerm) ||
-        product.category.includes(searchTerm) ||
-        product.title.includes(searchTerm)
+        product.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
   };
 
+  // for dropdown menu
   const handleProductSort = (option: Option) => {
     switch (option.value) {
       case "sortRating": {
@@ -83,15 +85,19 @@ function Products() {
   return (
     <>
       <div className={styles.row}>
-        <input
-          type="text"
-          placeholder={'example"apple"'}
-          onChange={handleProductFilter}
-        />
-        <DropdownMenu
-          options={dropDownMenuOptions}
-          onSelect={(option) => handleProductSort(option)}
-        />
+        <div className={styles.searchAndFilterOutliner}>
+          <input
+            className={styles.searchInput}
+            type="text"
+            placeholder={'example"apple"'}
+            onChange={handleProductFilter}
+          />
+          <DropdownMenu
+            options={dropDownMenuOptions}
+            onSelect={(option) => handleProductSort(option)}
+            width="150px"
+          />
+        </div>
       </div>
       <div className={styles.row} style={{ flexWrap: "wrap" }}>
         {(filteredProducts.length === 0 ? products : filteredProducts).map(
