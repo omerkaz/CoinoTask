@@ -45,7 +45,10 @@ function ProductCard({
         </div>
         <div className={styles.productPriceWrap}>
           <span>
-            {product.price - (product.price * product.discountPercentage) / 100}
+            {(
+              product.price -
+              (product.price * product.discountPercentage) / 100
+            ).toFixed(2)}
           </span>
           $
         </div>

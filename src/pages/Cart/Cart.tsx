@@ -5,6 +5,7 @@ import styles from "./Cart.module.scss";
 import {
   removeProductFromCart,
   updateCartItemQuantity,
+  getTotalPrice,
 } from "@src/store/cart/slice";
 import { addProductToFavorites } from "@src/store/favorites/slice";
 import { useAppDispatch, useAppSelector } from "@src/store/hooks";
@@ -13,6 +14,7 @@ import { Product } from "@src/types";
 function Cart() {
   const dispatch = useAppDispatch();
   const cartItemsWithQuantity = useAppSelector((state) => state.cart.cartItems);
+  const cartItemsTotalPrice = useAppSelector(getTotalPrice);
 
   const handleRemoveFromCart = (product: Product) => {
     dispatch(removeProductFromCart(product));
@@ -50,7 +52,7 @@ function Cart() {
         </div>
         <div className={styles.summaryAmountInfoWrap}>
           <span>Total Amount</span>
-          <span>0$</span>
+          <span>{cartItemsTotalPrice} $</span>
         </div>
         <div className={styles.summaryButtonWrap}>
           <Link to={"/checkout"}>Go to Checkout</Link>
