@@ -1,21 +1,22 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import { addNotification } from "@src/utils/notifications";
-import styles from "./SubscribeForm.module.scss";
+import { useTranslation } from "react-i18next";
 import {
   FaTwitterSquare,
   FaFacebookSquare,
   FaInstagramSquare,
 } from "react-icons/fa";
-import { useTranslation } from "react-i18next";
-type Values = {
+import styles from "./SubscribeForm.module.scss";
+
+type EmailValues = {
   email: string;
 };
 
 function SubscribeForm() {
   const { t } = useTranslation();
 
-  const onSubmit = async (values: Values) => {
+  const onSubmit = async (values: EmailValues) => {
     try {
       console.log(values);
       addNotification({
@@ -38,7 +39,7 @@ function SubscribeForm() {
       <div className={styles.subscribe}>
         <Formik
           initialValues={{ email: "" }}
-          onSubmit={(values: Values) => onSubmit(values)}
+          onSubmit={(values: EmailValues) => onSubmit(values)}
         >
           <Form className={styles.form}>
             <Field

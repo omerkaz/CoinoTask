@@ -4,15 +4,13 @@ import { api } from "@src/api";
 import ProductCard from "@src/components/ProductCard/ProductCard";
 import DropdownMenu from "@src/components/DropdownMenu/DropdownMenu";
 import { Product, Option } from "@src/types";
-import styles from "./Products.module.scss";
 import { addProductToCart } from "@src/store/cart/slice";
 import { addProductToFavorites } from "@src/store/favorites/slice";
 import { useAppDispatch } from "@src/store/hooks";
 import { useTranslation } from "react-i18next";
-
+import styles from "./Products.module.scss";
 function Products() {
   const { t } = useTranslation();
-
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 

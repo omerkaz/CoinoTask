@@ -44,5 +44,16 @@
     "district": "District",
     "address": "Address",
     "apartmentNumber": "Ap. Number"
+  },
+  "productCard": {
+    "addCart": "Add Cart",
+    "removeCart": "Remove Cart",
+    "addFavorites": "Add Favorites",
+    "removeFavorites": "Remove Favorites"
+  },
+  "modal": {
+    "removeCart": "Remove Cart",
+    "removeCartAndAddFavorites": "Remove Favorites"
   }
+
 }

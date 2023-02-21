@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./ProductCard.module.scss";
 import { ProductCardProps } from "@src/types";
-
+import { useTranslation } from "react-i18next";
 function ProductCard({
   product,
   quantity,
@@ -11,6 +11,7 @@ function ProductCard({
   onRemoveFromFavorites,
   onQuantityChange,
 }: ProductCardProps) {
+  const { t } = useTranslation();
   const quantityInput = useRef<HTMLInputElement>(null);
 
   const handleAddToCart = () => {
@@ -55,22 +56,22 @@ function ProductCard({
         <div className={styles.productButtons}>
           {onAddToCart && (
             <button type="button" onClick={handleAddToCart}>
-              Add Cart
+              {t("productCard.addCart")}
             </button>
           )}
           {onRemoveFromCart && (
             <button type="button" onClick={handleRemoveFromCart}>
-              Remove Cart
+              {t("productCard.removeCart")}
             </button>
           )}
           {onAddToFavorites && (
             <button type="button" onClick={handleAddToFavorites}>
-              Add Favorites
+              {t("productCard.addFavorites")}
             </button>
           )}
           {onRemoveFromFavorites && (
             <button type="button" onClick={handleRemoveFromFavorites}>
-              Remove Favorites
+              {t("productCard.removeFavorites")}
             </button>
           )}
         </div>

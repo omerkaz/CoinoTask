@@ -55,7 +55,7 @@ function Cart() {
                 setIsModalVisible(false);
               }}
             >
-              Sepetten Kaldır
+              {t("modal.removeCart")}
             </button>
           ) : (
             <div>
@@ -65,7 +65,7 @@ function Cart() {
                   setIsModalVisible(false);
                 }}
               >
-                Sepetten Kaldır
+                {t("modal.removeCart")}
               </button>
               <button
                 onClick={() => {
@@ -76,7 +76,7 @@ function Cart() {
                   setIsModalVisible(false);
                 }}
               >
-                Sepetten Kaldır ve Favorilere Ekle
+                {t("modal.removeCartAndAddFavorites")}
               </button>
             </div>
           )}

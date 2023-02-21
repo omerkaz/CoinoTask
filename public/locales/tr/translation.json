@@ -44,5 +44,15 @@
     "district": "Semt",
     "address": "Adres",
     "apartmentNumber": "Ap. Numarası"
+  },
+  "productCard": {
+    "addCart": "Sepete Ekle",
+    "removeCart": "Sepetten Kaldır",
+    "addFavorites": "Favorilere Ekle",
+    "removeFavorites": "Favorilerden Kaldır"
+  },
+  "modal": {
+    "removeCart": "Sepetten Kaldır",
+    "removeCartAndAddFavorites": "Sepetten Kaldır ve Favorilere Ekle"
   }
 }
