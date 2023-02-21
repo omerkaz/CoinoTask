@@ -33,7 +33,7 @@ export const axios_get = (
  * @param {*} payload
  * @returns response
  */
-export const axios_post = (url: string, payload: any) => {
+export const axios_post = (url: string, payload: {}) => {
   return api.post(`${url}`, payload, {});
 };
 /**
@@ -42,7 +42,7 @@ export const axios_post = (url: string, payload: any) => {
  * @param {*} payload
  * @returns response
  */
-export const axios_patch = (url: string, payload: any) => {
+export const axios_patch = (url: string, payload: {}) => {
   return api.patch(`${url}`, payload, {});
 };
 /**
@@ -51,6 +51,6 @@ export const axios_patch = (url: string, payload: any) => {
  * @param {*} id
  * @returns response
  */
-export const axios_delete = (url: string, id: any) => {
+export const axios_delete = (url: string, id: number | string) => {
   return api.delete(`${url + id}`, {});
 };

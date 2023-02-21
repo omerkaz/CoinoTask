@@ -110,7 +110,7 @@ function Products() {
           <DropdownMenu
             options={dropDownMenuOptions}
             onSelect={(option) => handleProductSort(option)}
-            width="150px"
+            width={"150px" as React.CSSProperties}
           />
         </div>
       </div>

@@ -66,10 +66,14 @@ function Navbar() {
           <DropdownMenu
             options={languageOptions}
             onSelect={(language) => handleLanguageDropdownMenu(language)}
-            width="50px"
+            width={"150px" as React.CSSProperties}
           />
           <button className={styles.navbarButton} onClick={toggleTheme}>
-            {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
+            {theme === "light" ? (
+              <MdDarkMode />
+            ) : (
+              <MdLightMode style={{ marginLeft: "auto" }} />
+            )}
           </button>
           <Link className={styles.navbarCart} to={"/cart"}>
             <BsFillCartFill size={22} />

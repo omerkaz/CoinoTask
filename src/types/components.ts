@@ -1,13 +1,14 @@
+import React from "react";
 // DropdownMenu types
 export type Option = {
   value: string | number;
-  label: string | any;
+  label: string;
 };
 
 export type DropdownProps = {
   options: Option[];
   onSelect?: (option: Option) => void;
-  width?: string;
+  width: React.CSSProperties;
 };
 // ------------------
 

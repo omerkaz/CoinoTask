@@ -14,7 +14,7 @@ function DropdownMenu({ options, onSelect, width }: DropdownProps) {
   return (
     <select
       className={styles.select}
-      style={width ? { width: width } : undefined}
+      style={{ width: `${width}` }}
       value={selectedOption?.value ?? ""}
       onChange={(e) => {
         const selected = options.find(
