@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CartPageState } from "@src/types";
+import { CartPageState, CartItem } from "@src/types";
 
 const initialState: CartPageState = {
   cartItems: [],
@@ -43,6 +43,14 @@ const slice = createSlice({
     },
   },
 });
+
+export const getTotalPrice = (state: { cart: { cartItems: CartItem[] } }) => {
+  let totalPrice = 0;
+  state.cart.cartItems.map(
+    (item: CartItem) => (totalPrice += item.quantity * item.product.price)
+  );
+  return totalPrice;
+};
 
 export const {
   addProductToCart,

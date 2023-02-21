@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Option } from "@src/types";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "@src/store/hooks";
 import DropdownMenu from "@Components/DropdownMenu/DropdownMenu";
 import styles from "./Navbar.module.scss";
 import { FaShopify } from "react-icons/fa";
@@ -20,7 +21,9 @@ function Navbar() {
       ? i18n.changeLanguage("tr")
       : i18n.changeLanguage("en");
   };
-
+  const productsNumberInCart = useAppSelector(
+    (state) => state.cart.cartItems.length
+  );
   return (
     <section className={styles.navbarSection}>
       <nav className={styles.navbar}>
@@ -52,7 +55,7 @@ function Navbar() {
           />
           <Link className={styles.navbarCart} to={"/cart"}>
             <BsFillCartFill size={22} />
-            <span>(1)</span>
+            <span>{productsNumberInCart}</span>
           </Link>
         </div>
       </nav>
