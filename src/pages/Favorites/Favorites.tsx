@@ -24,7 +24,7 @@ function Favorites() {
     <div className={styles.favoritesRow}>
       {favoriteProducts.length === 0 ? (
         <h3 className={styles.favoritesInfoText}>
-          {t("favorites.empytFavorites")}
+          {t("favorites.emptyFavorites")}
         </h3>
       ) : (
         favoriteProducts.map((product) => (

@@ -21,13 +21,14 @@
     }
   },
   "favorites": {
-    "empytFavorites": "Favoriler sayfasında herhangi bir ürün bulunmamaktadır. Lütfen sevdiğiniz ürünleri ekleyiniz."
+    "emptyFavorites": "Favoriler sayfasında herhangi bir ürün bulunmamaktadır. Lütfen sevdiğiniz ürünleri ekleyiniz."
   },
   "cart": {
     "summary": "Özet",
     "shipping": "Kargo",
     "total-amount": "Toplam Tutar",
-    "go-to-checkout": "Satın al"
+    "go-to-checkout": "Satın al",
+    "emptyCart": "Sepette ürün bulunmamaktadır."
   },
   "checkout": {
     "summary": "Özet",

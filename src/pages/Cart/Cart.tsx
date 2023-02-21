@@ -85,7 +85,7 @@ function Cart() {
       {/* PRODUCTS */}
       <div className={styles.productsCol}>
         {cartItems.length === 0 ? (
-          <h3 className={styles.cartInfoText}>Sepette ürün bulunmamaktadır</h3>
+          <h3 className={styles.cartInfoText}>{t("cart.emptyCart")}</h3>
         ) : (
           cartItems.map((cartItem) => (
             <ProductCard

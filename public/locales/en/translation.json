@@ -21,13 +21,14 @@
     }
   },
   "favorites": {
-    "empytFavorites": "There are no products on the Favorites page. Please add your favorite products."
+    "emptyFavorites": "There are no products on the Favorites page. Please add your favorite products."
   },
   "cart": {
     "summary": "Summary",
     "shipping": "Shipping",
     "total-amount": "Total Amount",
-    "go-to-checkout": "Checkout"
+    "go-to-checkout": "Checkout",
+    "emptyCart": "There are no products in the cart."
   },
   "checkout": {
     "summary": "Summary",
