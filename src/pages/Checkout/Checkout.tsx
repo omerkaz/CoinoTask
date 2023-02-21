@@ -20,7 +20,6 @@ const initialValues: UserOrderFormValues = {
 
 function Checkout() {
   const { t } = useTranslation();
-
   const formikRef = useRef<FormikProps<UserOrderFormValues>>(null);
   const cartItemsTotalPrice = useAppSelector(getTotalPrice);
 
@@ -32,9 +31,7 @@ function Checkout() {
   };
 
   // This function is triggered when the form is submitted successfully
-  const onSubmit = (values: UserOrderFormValues) => {
-    console.log(values);
-  };
+  const onSubmit = (values: UserOrderFormValues) => {};
 
   return (
     <div className={styles.checkoutRow}>

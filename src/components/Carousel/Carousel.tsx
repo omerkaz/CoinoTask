@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Carousel.module.scss";
 import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 type CaurouselProps = {
@@ -8,6 +8,15 @@ type CaurouselProps = {
 
 function Carousel({ images, text }: CaurouselProps) {
   const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImage((prevValue) =>
+        prevValue === images.length - 1 ? 0 : prevValue + 1
+      );
+    }, 3000);
+    return () => clearInterval(intervalId);
+  }, [images.length]);
 
   const handlePrevClick = () => {
     setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);

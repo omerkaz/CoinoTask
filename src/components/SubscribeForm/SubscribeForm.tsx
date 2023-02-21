@@ -18,14 +18,12 @@ function SubscribeForm() {
 
   const onSubmit = async (values: EmailValues) => {
     try {
-      console.log(values);
       addNotification({
         title: "Abonelik işleminiz başarıyla tamamlandı!",
         message: "",
         type: "success",
       });
-    } catch ({ response }) {
-      console.log(response);
+    } catch {
       addNotification({
         title: "İşlem Başarısız!",
         message: "",
