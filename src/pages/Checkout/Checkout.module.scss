@@ -80,16 +80,11 @@
     cursor: pointer;
   }
 }
-.checkoutFormErrorMessage {
-  margin-top: 0.4rem;
-  color: $dark-red;
-  text-align: center;
-}
 .summaryCol {
   display: flex;
   flex-direction: column;
   color: $primary-text-color;
-  background: $secondary-color;
+  background: $secondary-background-color;
   margin-top: 4rem;
   width: 20rem;
   height: 200px;
@@ -99,7 +94,7 @@
 .summaryHeaderWrap {
   text-align: center;
   margin: 0 1rem 0 1rem;
-  border-bottom: 0.1rem solid $thirdy-color;
+  border-bottom: 0.1rem solid $thirdy-background-color;
   h2 {
     margin: 0;
   }
@@ -114,7 +109,7 @@
   justify-content: space-between;
   margin: 1rem 1rem 0 1rem;
   padding-bottom: 1rem;
-  border-bottom: 0.1rem solid $thirdy-color;
+  border-bottom: 0.1rem solid $thirdy-background-color;
 }
 
 .summaryButtonWrap {

@@ -1,5 +1,7 @@
+@import "./_variables.scss";
+
 body {
-  background-color: #F0A04B;
+  background-color: $thirdy-background-color;
   background-image: url("../images/backgroundShapes.png");
   background-blend-mode: color-dodge;
   margin: 0px;
@@ -17,3 +19,17 @@ body {
   font-family: "Avenir LT Pro 55 Roman";
   font-weight: 500;
 }
+
+// :root {
+//   --background: white;
+//   --text-primary: black;
+//   --text-secondary: royalblue;
+//   --accent: purple;
+// }
+
+// [data-theme='dark'] {
+//   --background: black;
+//   --text-primary: white;
+//   --text-secondary: grey;
+//   --accent: darkred;
+// }

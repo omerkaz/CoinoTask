@@ -5,38 +5,52 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: $primary-color;
+  background-color: $primary-background-color;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-  .navbar {
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 4rem;
+  width: 100%;
+}
+.navbarBrand {
+  color: $primary-text-color;
+  text-decoration: none;
+  text-align: center;
+}
+.navbarList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: $primary-text-color;
+  li {
+    margin: 0 2rem;
+    font-size: 1.2rem;
+  }
+  .navbarListItem {
+    margin-right: 1rem;
+  }
+  .navbarLink {
+    text-decoration: none;
+    color: $primary-text-color;
+  }
+  .navbarButton {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    min-height: 4rem;
-    width: 100%;
-    .navbarBrand {
-      color: $primary-text-color;
-      text-decoration: none;
-      text-align: center;
-    }
-    .navbarList {
-      display: flex;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      color: $primary-text-color;
-      li {
-        margin: 0 2rem;
-        font-size: 1.2rem;
-      }
-      .navbarListItem {
-        margin-right: 1rem;
-        .navbarLink {
-          text-decoration: none;
-          color: $primary-text-color;
-        }
-      }
-    }
+    height: 2rem;
+    width: 50%;
+    margin: 0.5rem 5% 0.5rem 5%;
+    border: transparent;
+    border-radius: 60px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: $primary-button-color;
   }
   .navbarCart {
     color: $primary-text-color;

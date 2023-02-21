@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Option } from "@src/types";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "@src/store/hooks";
 import DropdownMenu from "@Components/DropdownMenu/DropdownMenu";
+import useLocalStorage from "use-local-storage";
 import styles from "./Navbar.module.scss";
 import { FaShopify } from "react-icons/fa";
 import { BsFillCartFill } from "react-icons/bs";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 function Navbar() {
+  // for light mode/dark mode
+  const [theme, setTheme] = useLocalStorage("theme", "light");
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+  // to automatically load the theme setting when the page is refreshed
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
   const { t, i18n } = useTranslation();
   const languageOptions: Option[] = [];
 
@@ -55,6 +68,9 @@ function Navbar() {
             onSelect={(language) => handleLanguageDropdownMenu(language)}
             width="50px"
           />
+          <button className={styles.navbarButton} onClick={toggleTheme}>
+            {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
+          </button>
           <Link className={styles.navbarCart} to={"/cart"}>
             <BsFillCartFill size={22} />
             <span>{productsNumberInCart}</span>
