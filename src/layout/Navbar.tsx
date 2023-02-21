@@ -21,9 +21,11 @@ function Navbar() {
       ? i18n.changeLanguage("tr")
       : i18n.changeLanguage("en");
   };
+
   const productsNumberInCart = useAppSelector(
     (state) => state.cart.cartItems.length
   );
+
   return (
     <section className={styles.navbarSection}>
       <nav className={styles.navbar}>

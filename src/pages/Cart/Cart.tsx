@@ -10,8 +10,9 @@ import {
 import { addProductToFavorites } from "@src/store/favorites/slice";
 import { useAppDispatch, useAppSelector } from "@src/store/hooks";
 import { Product } from "@src/types";
-
+import { useTranslation } from "react-i18next";
 function Cart() {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const cartItemsWithQuantity = useAppSelector((state) => state.cart.cartItems);
   const cartItemsTotalPrice = useAppSelector(getTotalPrice);
@@ -44,18 +45,18 @@ function Cart() {
       </div>
       <div className={styles.summaryCol}>
         <div className={styles.summaryHeaderWrap}>
-          <h2>Summary</h2>
+          <h2>{t("cart.summary")}</h2>
         </div>
         <div className={styles.summaryShippingInfoWrap}>
-          <span>Shipping</span>
+          <span>{t("cart.shipping")}</span>
           <span>Gratis</span>
         </div>
         <div className={styles.summaryAmountInfoWrap}>
-          <span>Total Amount</span>
+          <span>{t("cart.total-amount")}</span>
           <span>{cartItemsTotalPrice} $</span>
         </div>
         <div className={styles.summaryButtonWrap}>
-          <Link to={"/checkout"}>Go to Checkout</Link>
+          <Link to={"/checkout"}>{t("cart.go-to-checkout")}</Link>
         </div>
       </div>
     </div>

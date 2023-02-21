@@ -13,6 +13,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-top: 4rem;
   color: $primary-text-color;
   background: $secondary-color;
   max-width: 25%;
@@ -48,10 +49,10 @@
   margin-bottom: 1rem;
   a {
     text-align: center;
-    height: 3rem;
+    height: 2rem;
     width: 8rem;
-    padding: 0.6rem 0 0 0;
-    margin: 1rem 1rem 0 1rem;
+    padding: 1rem 0 0 0;
+    margin: 1rem 0rem 0 1rem;
     border-radius: 60px;
     font-size: 14px;
     text-transform: uppercase;

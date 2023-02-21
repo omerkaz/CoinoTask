@@ -7,17 +7,19 @@ import {
   FaFacebookSquare,
   FaInstagramSquare,
 } from "react-icons/fa";
-
+import { useTranslation } from "react-i18next";
 type Values = {
   email: string;
 };
 
 function SubscribeForm() {
+  const { t } = useTranslation();
+
   const onSubmit = async (values: Values) => {
     try {
       console.log(values);
       addNotification({
-        title: "İşlem Başarılı!",
+        title: "Abonelik işleminiz başarıyla tamamlandı!",
         message: "",
         type: "success",
       });
@@ -41,11 +43,12 @@ function SubscribeForm() {
           <Form className={styles.form}>
             <Field
               className={styles.input}
-              name={"email"}
+              name="email"
+              type="email"
               placeholder="example@gmail.com"
             ></Field>
             <button className={styles.button} type="submit">
-              SUBSCRIBE
+              {t("subscribeForm.subscribe")}
             </button>
           </Form>
         </Formik>

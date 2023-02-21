@@ -2,29 +2,27 @@ import React, { useRef } from "react";
 import { Formik, Field, Form, FormikProps } from "formik";
 import { CheckoutSchema } from "@utils/yup";
 import styles from "./Checkout.module.scss";
+import { UserOrderFormValues } from "@src/types";
+import { useTranslation } from "react-i18next";
+import { getTotalPrice } from "@src/store/cart/slice";
+import { useAppSelector } from "@src/store/hooks";
 
-type CheckoutFormValues = {
-  name: string;
-  surname: string;
-  phone: number | string;
-  email: string;
-  city: string;
-  district: string;
-  address: string;
-  apartmentNumber: number | string;
+const initialValues: UserOrderFormValues = {
+  name: "",
+  surname: "",
+  phone: "",
+  email: "",
+  city: "",
+  district: "",
+  address: "",
+  apartmentNumber: "",
 };
+
 function Checkout() {
-  const initialValues: CheckoutFormValues = {
-    name: "",
-    surname: "",
-    phone: "",
-    email: "",
-    city: "",
-    district: "",
-    address: "",
-    apartmentNumber: "",
-  };
-  const formikRef = useRef<FormikProps<CheckoutFormValues>>(null);
+  const { t } = useTranslation();
+
+  const formikRef = useRef<FormikProps<UserOrderFormValues>>(null);
+  const cartItemsTotalPrice = useAppSelector(getTotalPrice);
 
   // This function is called when the form submit button outside the form is clicked.
   const handleSubmit = () => {
@@ -34,7 +32,7 @@ function Checkout() {
   };
 
   // This function is triggered when the form is submitted successfully
-  const onSubmit = (values: CheckoutFormValues) => {
+  const onSubmit = (values: UserOrderFormValues) => {
     console.log(values);
   };
 
@@ -43,15 +41,15 @@ function Checkout() {
       <div className={styles.checkoutCol}>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values: CheckoutFormValues) => onSubmit(values)}
+          onSubmit={(values: UserOrderFormValues) => onSubmit(values)}
           validationSchema={CheckoutSchema}
           innerRef={formikRef}
         >
           {({ values, errors, handleChange, touched }) => (
             <Form className={styles.checkoutForm}>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="name">Name</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="name">{t("form.name")}</label>
                   <span>:</span>
                   <Field
                     as={"input"}
@@ -61,14 +59,14 @@ function Checkout() {
                     onChange={handleChange}
                     values={values.name}
                     placeholder={
-                      errors.name && touched.name ? errors.name : undefined
+                      errors.name && touched.name ? errors.name : t("form.name")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="surname">Surname</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="surname">{t("form.surname")}</label>
                   <span>:</span>
                   <Field
                     as={"input"}
@@ -78,56 +76,60 @@ function Checkout() {
                     placeholder={
                       errors.surname && touched.surname
                         ? errors.surname
-                        : undefined
+                        : t("form.surname")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="phone">Phone</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="phone">{t("form.phone")}</label>
                   <span>:</span>
                   <Field
                     type="text"
                     name="phone"
                     id="phone"
                     placeholder={
-                      errors.phone && touched.phone ? errors.phone : undefined
+                      errors.phone && touched.phone
+                        ? errors.phone
+                        : t("form.phone")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="email">Email</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="email">{t("form.email")}</label>
                   <span>:</span>
                   <Field
                     type="email"
                     name="email"
                     id="email"
                     placeholder={
-                      errors.email && touched.email ? errors.email : undefined
+                      errors.email && touched.email
+                        ? errors.email
+                        : t("form.email")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="city">City</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="city">{t("form.city")}</label>
                   <span>:</span>
                   <Field
                     type="text"
                     name="city"
                     id="city"
                     placeholder={
-                      errors.city && touched.city ? errors.city : undefined
+                      errors.city && touched.city ? errors.city : t("form.city")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="district">District</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="district">{t("form.district")}</label>
                   <span>:</span>
                   <Field
                     type="text"
@@ -136,14 +138,14 @@ function Checkout() {
                     placeholder={
                       errors.district && touched.district
                         ? errors.district
-                        : undefined
+                        : t("form.district")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="address">Address</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="address">{t("form.address")}</label>
                   <span>:</span>
                   <Field
                     type="text"
@@ -152,14 +154,16 @@ function Checkout() {
                     placeholder={
                       errors.address && touched.address
                         ? errors.address
-                        : undefined
+                        : t("form.address")
                     }
                   />
                 </div>
               </div>
               <div className={styles.checkoutFormItem}>
-                <div style={{ display: "flex" }}>
-                  <label htmlFor="apartmentNumber">Ap. Number</label>
+                <div style={{ display: "flex", height: "2rem" }}>
+                  <label htmlFor="apartmentNumber">
+                    {t("form.apartmentNumber")}
+                  </label>
                   <span>:</span>
                   <Field
                     type="text"
@@ -168,7 +172,7 @@ function Checkout() {
                     placeholder={
                       errors.apartmentNumber && touched.apartmentNumber
                         ? errors.apartmentNumber
-                        : undefined
+                        : t("form.apartmentNumber")
                     }
                   />
                 </div>
@@ -179,19 +183,19 @@ function Checkout() {
       </div>
       <div className={styles.summaryCol}>
         <div className={styles.summaryHeaderWrap}>
-          <h2>Summary</h2>
+          <h2>{t("checkout.summary")}</h2>
         </div>
         <div className={styles.summaryShippingInfoWrap}>
-          <span>Shipping</span>
+          <span>{t("checkout.shipping")}</span>
           <span>Gratis</span>
         </div>
         <div className={styles.summaryAmountInfoWrap}>
-          <span>Total Amount</span>
-          <span>0$</span>
+          <span>{t("checkout.total-amount")}</span>
+          <span>{cartItemsTotalPrice}$</span>
         </div>
         <div className={styles.summaryButtonWrap}>
           <button type="submit" onClick={handleSubmit}>
-            Buy
+            {t("checkout.confirm-order")}
           </button>
         </div>
       </div>

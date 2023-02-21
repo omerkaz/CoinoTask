@@ -8,26 +8,30 @@ import styles from "./Products.module.scss";
 import { addProductToCart } from "@src/store/cart/slice";
 import { addProductToFavorites } from "@src/store/favorites/slice";
 import { useAppDispatch } from "@src/store/hooks";
+import { useTranslation } from "react-i18next";
 
 function Products() {
+  const { t } = useTranslation();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+
   const dropDownMenuOptions: Option[] = [
     {
       value: "",
-      label: "Sıralama",
+      label: t("products.sort.toSort"),
     },
     {
       value: "sortRating",
-      label: "Puana göre sırala",
+      label: t("products.sort.rating"),
     },
     {
       value: "sortAscendingPrice",
-      label: "Artan fiyat",
+      label: t("products.sort.ascendingSort"),
     },
     {
       value: "sortDescendingPrice",
-      label: "Azalan fiyat",
+      label: t("products.sort.descendingSort"),
     },
   ];
 
@@ -102,7 +106,7 @@ function Products() {
           <input
             className={styles.searchInput}
             type="text"
-            placeholder={"Search"}
+            placeholder={t("products.search").toString()}
             onChange={handleProductSearch}
           />
           <DropdownMenu

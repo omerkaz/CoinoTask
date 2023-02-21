@@ -1,8 +1,48 @@
 {
- "navbar": { 
+  "navbar": { 
     "home": "Home",
     "products": "Products",
     "contact": "Contact",
     "favorites": "Favorites"
+  },
+  "footer": {
+    "copyright": "© 2023 All Rights Reserved."
+  },
+  "subscribeForm": {
+    "subscribe": "Subscribe"
+  },
+  "products" : {
+    "search" : "Search",
+    "sort" : {
+      "toSort": "To sort",
+      "rating": "Sort by rating",
+      "ascendingSort": "Ascending Price",
+      "descendingSort": "Descending Price"
+    }
+  },
+  "favorites": {
+    "empytFavorites": "There are no products on the Favorites page. Please add your favorite products."
+  },
+  "cart": {
+    "summary": "Summary",
+    "shipping": "Shipping",
+    "total-amount": "Total Amount",
+    "go-to-checkout": "Checkout"
+  },
+  "checkout": {
+    "summary": "Summary",
+    "shipping": "Shipping",
+    "total-amount": "Total Amount",
+    "confirm-order": "Confirm Order"
+  },
+  "form": {
+    "name": "Name",
+    "surname": "Surname",
+    "phone": "Phone",
+    "email": "Email",
+    "city": "City",
+    "district": "District",
+    "address": "Address",
+    "apartmentNumber": "Ap. Number"
   }
 }

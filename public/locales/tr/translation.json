@@ -1,8 +1,48 @@
 {
- "navbar": { 
+  "navbar": { 
     "home": "Ana Sayfa",
     "products": "Mağaza",
     "contact": "İletişim",
     "favorites": "Favoriler"
+  },
+  "footer": {
+    "copyright": "© 2023 Tüm Hakları Saklıdır."
+  },
+  "subscribeForm": {
+    "subscribe": "Abone Ol"
+  },
+  "products" : {
+    "search" : "Ara",
+    "sort" : {
+      "toSort": "Sıralama",
+      "rating": "Derecelendirmeye göre sıralama",
+      "ascendingSort": "Artan Fiyat",
+      "descendingSort": "Azalan Fiyat"
+    }
+  },
+  "favorites": {
+    "empytFavorites": "Favoriler sayfasında herhangi bir ürün bulunmamaktadır. Lütfen sevdiğiniz ürünleri ekleyiniz."
+  },
+  "cart": {
+    "summary": "Özet",
+    "shipping": "Kargo",
+    "total-amount": "Toplam Tutar",
+    "go-to-checkout": "Satın al"
+  },
+  "checkout": {
+    "summary": "Özet",
+    "shipping": "Kargo",
+    "total-amount": "Toplam Tutar",
+    "confirm-order": "Siparişi Onayla"
+  },
+  "form": {
+    "name": "Ad",
+    "surname": "Soyad",
+    "phone": "Telefom",
+    "email": "Email",
+    "city": "Şehir",
+    "district": "Semt",
+    "address": "Adres",
+    "apartmentNumber": "Ap. Numarası"
   }
 }

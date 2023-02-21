@@ -53,20 +53,22 @@ function ProductCard({
           $
         </div>
         <div className={styles.productButtons}>
-          {onAddToCart ? (
-            <button type="button" onClick={() => handleAddToCart()}>
+          {onAddToCart && (
+            <button type="button" onClick={handleAddToCart}>
               Add Cart
             </button>
-          ) : (
+          )}
+          {onRemoveFromCart && (
             <button type="button" onClick={handleRemoveFromCart}>
               Remove Cart
             </button>
           )}
-          {onAddToFavorites ? (
+          {onAddToFavorites && (
             <button type="button" onClick={handleAddToFavorites}>
               Add Favorites
             </button>
-          ) : (
+          )}
+          {onRemoveFromFavorites && (
             <button type="button" onClick={handleRemoveFromFavorites}>
               Remove Favorites
             </button>

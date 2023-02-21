@@ -1,7 +1,7 @@
 // DropdownMenu types
 export type Option = {
   value: string | number;
-  label: string;
+  label: string | any;
 };
 
 export type DropdownProps = {
@@ -34,5 +34,18 @@ export type ProductCardProps = {
   onAddToFavorites?: () => void;
   onRemoveFromFavorites?: () => void;
   onQuantityChange?: (newQuantity: number) => void;
+};
+// ------------------
+
+// Form types
+export type UserOrderFormValues = {
+  name: string;
+  surname: string;
+  phone: number | string;
+  email: string;
+  city: string;
+  district: string;
+  address: string;
+  apartmentNumber: number | string;
 };
 // ------------------
