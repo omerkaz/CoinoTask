@@ -16,7 +16,7 @@
       "@types/*": ["src/types/*"],
       "@assets/*": ["src/assets/*"],
       "@store/*": ["src/store/*"],
-      "@layout/*": ["src/Layout/*"],
+      "@layout/*": ["src/layout/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,

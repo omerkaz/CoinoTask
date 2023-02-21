@@ -11,6 +11,7 @@ module.exports = {
       "@types": path.resolve(__dirname, "src/types"),
       "@assets": path.resolve(__dirname, "src/assets"),
       "@store": path.resolve(__dirname, "src/store"),
+      "@layout": path.resolve(__dirname, "src/layout"),
     },
   },
   jest: {
