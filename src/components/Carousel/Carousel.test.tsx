@@ -10,6 +10,8 @@ describe("Carousel elements renders correctly", () => {
       { id: 1, src: "image2.png" },
     ];
     const componentTree = render(<Carousel images={images} />);
+
+    // assert
     expect(componentTree).toMatchSnapshot();
   });
 
@@ -21,6 +23,8 @@ describe("Carousel elements renders correctly", () => {
     ];
     render(<Carousel images={images} />);
     const carouselImage = screen.getByTestId("carouselImage");
+
+    // assert
     expect(carouselImage).toBeInTheDocument();
   });
   test("should show the next image when the right button is clicked", () => {
