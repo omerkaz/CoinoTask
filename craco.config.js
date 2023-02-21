@@ -13,4 +13,13 @@ module.exports = {
       "@store": path.resolve(__dirname, "src/store"),
     },
   },
+  jest: {
+    configure: {
+      moduleNameMapper: {
+        "^@components(.*)$": "<rootDir>/src/components$1",
+        "^@src(.*)$": "<rootDir>/src$1",
+        "^@utils(.*)$": "<rootDir>/src/utils$1",
+      },
+    },
+  },
 };

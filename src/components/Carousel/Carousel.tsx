@@ -28,14 +28,22 @@ function Carousel({ images, text }: CaurouselProps) {
   return (
     <div className={styles.carousel}>
       <div className={styles.image}>
-        <img src={images[currentImage].src} />
+        <img data-testid="carouselImage" src={images[currentImage].src} />
         {text ? <div>Text</div> : undefined}
       </div>
       <div className={styles.navigation}>
-        <button className={styles.button} onClick={handleNextClick}>
+        <button
+          data-testid="carouselButtonLeft"
+          className={styles.button}
+          onClick={handleNextClick}
+        >
           <FaArrowCircleLeft size={"30"} />
         </button>
-        <button className={styles.button} onClick={handlePrevClick}>
+        <button
+          data-testid="carouselButtonRight"
+          className={styles.button}
+          onClick={handlePrevClick}
+        >
           <FaArrowCircleRight size={"30"} />
         </button>
       </div>
