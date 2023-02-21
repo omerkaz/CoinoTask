@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import { ReactNotifications } from "react-notifications-component";
-import Layout from "@src/layout/Layout";
+import Layout from "@src/Layout/Layout";
 import Home from "@pages/Home/Home";
 import Products from "@pages/Products/Products";
 import Cart from "@pages/Cart/Cart";
