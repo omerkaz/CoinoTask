@@ -46,7 +46,10 @@ function Navbar() {
           <FaShopify size={35} />
         </Link>
         <ul className={styles.navbarList}>
-          <li className={styles.navbarListItem}>
+          <li
+            className={styles.navbarListItem}
+            style={{ marginLeft: "13rem;" }}
+          >
             <Link className={styles.navbarLink} to={"/"}>
               {t("navbar.home")}
             </Link>

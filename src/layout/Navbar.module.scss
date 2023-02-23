@@ -11,9 +11,13 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   min-height: 4rem;
   width: 100%;
+  margin-left: 2rem;
+  ul {
+    margin-left: 6rem;
+  }
 }
 .navbarBrand {
   color: $primary-text-color;
@@ -27,6 +31,8 @@
   margin: 0;
   padding: 0;
   color: $primary-text-color;
+  
+
   li {
     margin: 0 2rem;
     font-size: 1.2rem;
