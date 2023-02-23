@@ -7,7 +7,7 @@ export type Option = {
 
 export type DropdownProps = {
   options: Option[];
-  onSelect?: (option: Option) => void;
+  onSelect: (option: Option) => void;
   width: React.CSSProperties;
 };
 // ------------------
@@ -39,7 +39,7 @@ export type ProductCardProps = {
 // ------------------
 
 // Form types
-export type UserOrderFormValues = {
+export type UserInformationFormValues = {
   name: string;
   surname: string;
   phone: number | string;

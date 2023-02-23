@@ -18,7 +18,8 @@ function DropdownMenu({ options, onSelect, width }: DropdownProps) {
       value={selectedOption?.value ?? ""}
       onChange={(e) => {
         const selected = options.find(
-          (option) => option.value === e.target.value
+          // option.value should always be string because e.target.value is of type string
+          (option) => option.value.toString() === e.target.value
         );
         if (selected) {
           handleSelect(selected);

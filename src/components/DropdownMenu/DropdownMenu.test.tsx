@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import DropdownMenu from "./DropdownMenu";
 
 describe("DropdownMenu elements renders correctly", () => {
@@ -10,9 +9,15 @@ describe("DropdownMenu elements renders correctly", () => {
       { value: 1, label: "test" },
       { value: 2, label: "test 3" },
     ];
+    const callBackMock = jest.fn();
     const componentTree = render(
-      <DropdownMenu width={"150px" as React.CSSProperties} options={options} />
+      <DropdownMenu
+        onSelect={callBackMock}
+        width={"150px" as React.CSSProperties}
+        options={options}
+      />
     );
+
     // assert
     expect(componentTree).toMatchSnapshot();
   });
@@ -24,10 +29,15 @@ describe("DropdownMenu elements renders correctly", () => {
       { value: 1, label: "test 2" },
       { value: 2, label: "test 3" },
     ];
+    const callBackMock = jest.fn();
 
     // Act
     render(
-      <DropdownMenu width={"150px" as React.CSSProperties} options={options} />
+      <DropdownMenu
+        onSelect={callBackMock}
+        width={"150px" as React.CSSProperties}
+        options={options}
+      />
     );
 
     // Assert
@@ -42,10 +52,15 @@ describe("DropdownMenu elements renders correctly", () => {
       { value: 1, label: "test 2" },
       { value: 2, label: "test 3" },
     ];
+    const callBackMock = jest.fn();
 
     // Act
     render(
-      <DropdownMenu width={"150px" as React.CSSProperties} options={options} />
+      <DropdownMenu
+        onSelect={callBackMock}
+        width={"150px" as React.CSSProperties}
+        options={options}
+      />
     );
 
     // Assert
@@ -62,10 +77,15 @@ describe("DropdownMenu elements renders correctly", () => {
       { value: 1, label: "test 2" },
       { value: 2, label: "test 3" },
     ];
+    const callBackMock = jest.fn();
 
     // Act
     render(
-      <DropdownMenu width={"150px" as React.CSSProperties} options={options} />
+      <DropdownMenu
+        onSelect={callBackMock}
+        width={"150px" as React.CSSProperties}
+        options={options}
+      />
     );
 
     // Assert

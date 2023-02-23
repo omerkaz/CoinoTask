@@ -39,7 +39,7 @@
   "form": {
     "name": "Ad",
     "surname": "Soyad",
-    "phone": "Telefom",
+    "phone": "Telefon",
     "email": "Email",
     "city": "Şehir",
     "district": "Semt",

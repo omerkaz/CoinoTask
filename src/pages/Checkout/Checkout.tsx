@@ -2,12 +2,18 @@ import React, { useRef } from "react";
 import { Formik, Field, Form, FormikProps } from "formik";
 import { CheckoutSchema } from "@utils/yup";
 import styles from "./Checkout.module.scss";
-import { UserOrderFormValues } from "@src/types";
+import {
+  UserInformationFormValues,
+  CheckoutFormItem,
+  Option,
+} from "@src/types";
 import { useTranslation } from "react-i18next";
 import { getTotalPrice } from "@src/store/cart/slice";
-import { useAppSelector } from "@src/store/hooks";
+import { addFormValues } from "@src/store/checkout/slice";
+import { useAppSelector, useAppDispatch } from "@src/store/hooks";
+import DropdownMenu from "@src/components/DropdownMenu/DropdownMenu";
 
-const initialValues: UserOrderFormValues = {
+const initialValues: UserInformationFormValues = {
   name: "",
   surname: "",
   phone: "",
@@ -20,8 +26,10 @@ const initialValues: UserOrderFormValues = {
 
 function Checkout() {
   const { t } = useTranslation();
-  const formikRef = useRef<FormikProps<UserOrderFormValues>>(null);
+  const dispatch = useAppDispatch();
+  const formikRef = useRef<FormikProps<UserInformationFormValues>>(null);
   const cartItemsTotalPrice = useAppSelector(getTotalPrice);
+  const savedForms = useAppSelector((state) => state.checkout.checkoutForms);
 
   // This function is called when the form submit button outside the form is clicked.
   const handleSubmit = () => {
@@ -31,14 +39,55 @@ function Checkout() {
   };
 
   // This function is triggered when the form is submitted successfully
-  const onSubmit = (values: UserOrderFormValues) => {};
+  const onSubmit = (values: UserInformationFormValues) => {
+    // send formValues with id and label to redux
+    dispatch(
+      addFormValues({
+        id: savedForms.length,
+        label: "zort",
+        formValues: values,
+      })
+    );
+  };
+
+  const handleDropdownMenu = (option: Option) => {
+    // if select empty option then reset form values
+    if (option.value === "") formikRef.current?.resetForm();
+
+    // take matching formValues
+    const selectedFormValues = savedForms.find(
+      (value) => value.id === option.value
+    );
+
+    // and set forms value
+    for (const [fieldName, fieldValue] of Object.entries(
+      selectedFormValues?.formValues || {}
+    )) {
+      formikRef.current?.setFieldValue(fieldName, fieldValue);
+    }
+  };
+
+  // create options for saved forms from store/checkout
+  const generateDropdownMenuOptions = (checkoutForms: CheckoutFormItem[]) => {
+    const defaultOption = { value: "", label: "Kayıtlı Adreslerim" };
+    const options = checkoutForms.map(({ id, label }): Option => {
+      return { value: id, label };
+    });
+    options.unshift(defaultOption);
+    return options;
+  };
 
   return (
     <div className={styles.checkoutRow}>
       <div className={styles.checkoutCol}>
+        <DropdownMenu
+          options={generateDropdownMenuOptions(savedForms)}
+          width={"100%" as React.CSSProperties}
+          onSelect={(option) => handleDropdownMenu(option)}
+        />
         <Formik
           initialValues={initialValues}
-          onSubmit={(values: UserOrderFormValues) => onSubmit(values)}
+          onSubmit={(values: UserInformationFormValues) => onSubmit(values)}
           validationSchema={CheckoutSchema}
           innerRef={formikRef}
         >
@@ -70,6 +119,8 @@ function Checkout() {
                     type="text"
                     name="surname"
                     id="surname"
+                    onChange={handleChange}
+                    values={values.surname}
                     placeholder={
                       errors.surname && touched.surname
                         ? errors.surname
@@ -86,6 +137,8 @@ function Checkout() {
                     type="text"
                     name="phone"
                     id="phone"
+                    onChange={handleChange}
+                    values={values.phone}
                     placeholder={
                       errors.phone && touched.phone
                         ? errors.phone
@@ -102,6 +155,8 @@ function Checkout() {
                     type="email"
                     name="email"
                     id="email"
+                    onChange={handleChange}
+                    values={values.email}
                     placeholder={
                       errors.email && touched.email
                         ? errors.email
@@ -118,6 +173,8 @@ function Checkout() {
                     type="text"
                     name="city"
                     id="city"
+                    onChange={handleChange}
+                    values={values.city}
                     placeholder={
                       errors.city && touched.city ? errors.city : t("form.city")
                     }
@@ -132,6 +189,8 @@ function Checkout() {
                     type="text"
                     name="district"
                     id="district"
+                    onChange={handleChange}
+                    values={values.district}
                     placeholder={
                       errors.district && touched.district
                         ? errors.district
@@ -148,6 +207,8 @@ function Checkout() {
                     type="text"
                     name="address"
                     id="address"
+                    onChange={handleChange}
+                    values={values.address}
                     placeholder={
                       errors.address && touched.address
                         ? errors.address
@@ -166,6 +227,8 @@ function Checkout() {
                     type="text"
                     name="apartmentNumber"
                     id="apartmentNumber"
+                    onChange={handleChange}
+                    values={values.apartmentNumber}
                     placeholder={
                       errors.apartmentNumber && touched.apartmentNumber
                         ? errors.apartmentNumber
