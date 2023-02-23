@@ -1,4 +1,4 @@
-# PROJECT : Secure Trading TEST CASE
+# PROJECT : Coino TEST CASE
 
 ## Table of contents
 
