@@ -46,10 +46,7 @@ function Navbar() {
           <FaShopify size={35} />
         </Link>
         <ul className={styles.navbarList}>
-          <li
-            className={styles.navbarListItem}
-            style={{ marginLeft: "13rem;" }}
-          >
+          <li className={styles.navbarListItem}>
             <Link className={styles.navbarLink} to={"/"}>
               {t("navbar.home")}
             </Link>
@@ -65,7 +62,7 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className={styles.navbarList}>
+        <div className={styles.navbarList} style={{ marginRight: "4rem" }}>
           <DropdownMenu
             options={languageOptions}
             onSelect={(language) => handleLanguageDropdownMenu(language)}
