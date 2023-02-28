@@ -65,22 +65,30 @@ function Products() {
     setFilteredProducts(filtered);
   };
   const handleProductSort = (option: Option) => {
+    // Check due to check on line 126
+    const selectProductsInUse =
+      filteredProducts.length === 0 ? products : filteredProducts;
+
     switch (option.value) {
       case "sortRating": {
-        const sortedProducts = [...products].sort(
+        const sortedProducts = [...selectProductsInUse].sort(
           (a, b) => b.rating - a.rating
         );
-        setProducts(sortedProducts);
+        setFilteredProducts(sortedProducts);
         break;
       }
       case "sortAscendingPrice": {
-        const sortedProducts = [...products].sort((a, b) => a.price - b.price);
-        setProducts(sortedProducts);
+        const sortedProducts = [...selectProductsInUse].sort(
+          (a, b) => a.price - b.price
+        );
+        setFilteredProducts(sortedProducts);
         break;
       }
       case "sortDescendingPrice": {
-        const sortedProducts = [...products].sort((a, b) => b.price - a.price);
-        setProducts(sortedProducts);
+        const sortedProducts = [...selectProductsInUse].sort(
+          (a, b) => b.price - a.price
+        );
+        setFilteredProducts(sortedProducts);
         break;
       }
     }
